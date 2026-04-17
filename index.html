@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome — Best Western | Fort Wayne, IN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #FAF6F0;
+      --card:       #FFF8F0;
+      --amber:      #C8842A;
+      --amber-dark: #A36820;
+      --espresso:   #3B2314;
+      --bw-blue:    #004B8D;
+      --bw-gold:    #F5A800;
+      --text:       #2E1A0E;
+      --muted:      #7A6050;
+      --border:     #E8D8C4;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    header {
+      background: var(--bw-blue);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .bw-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bw-badge {
+      background: var(--bw-gold);
+      color: var(--bw-blue);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .bw-badge span {
+      display: block;
+      font-size: 9px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .hotel-name {
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .wifi-indicator {
+      color: rgba(255,255,255,0.75);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wifi-dot {
+      width: 8px; height: 8px;
+      background: #4CAF50;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── HERO / CONNECT ──────────────────────────────── */
+    .hero {
+      padding: 40px 20px 32px;
+      text-align: center;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .welcome-line {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 6vw, 38px);
+      color: var(--espresso);
+      margin-bottom: 6px;
+    }
+
+    .welcome-sub {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .connect-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 28px 24px 24px;
+      box-shadow: 0 4px 24px rgba(59,35,20,0.08);
+    }
+
+    .network-name {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .ssid {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--espresso);
+      margin-bottom: 20px;
+    }
+
+    .tos {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .btn-connect {
+      display: block;
+      width: 100%;
+      background: var(--amber);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 3px 12px rgba(200,132,42,0.35);
+    }
+
+    .btn-connect:hover {
+      background: var(--amber-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(200,132,42,0.4);
+    }
+
+    .btn-connect:active {
+      transform: translateY(0);
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 600px;
+      margin: 36px auto 0;
+      padding: 0 20px;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider-text {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    /* ── SUNDRY SHOP BANNER ──────────────────────────── */
+    .shop-banner {
+      margin: 28px 20px 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(135deg, var(--espresso) 0%, #5C3420 100%);
+      border-radius: 18px;
+      padding: 32px 28px;
+      color: #fff;
+      animation: fadeUp 0.6s 0.15s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shop-banner::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: rgba(245,168,0,0.12);
+      border-radius: 50%;
+    }
+
+    .shop-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; left: -30px;
+      width: 120px; height: 120px;
+      background: rgba(245,168,0,0.08);
+      border-radius: 50%;
+    }
+
+    .shop-eyebrow {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--bw-gold);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .shop-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 5vw, 30px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .shop-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .shop-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    /* ── DRINKS SECTION ──────────────────────────────── */
+    .section {
+      padding: 36px 20px;
+      max-width: 740px;
+      margin: 0 auto;
+      animation: fadeUp 0.6s 0.25s ease both;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 4.5vw, 26px);
+      color: var(--espresso);
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .drinks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (min-width: 600px) {
+      .drinks-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .drink-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 14px 16px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .drink-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(59,35,20,0.1);
+    }
+
+    .drink-icon {
+      font-size: 36px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .drink-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      color: var(--espresso);
+      margin-bottom: 4px;
+    }
+
+    .drink-desc {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--espresso);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer strong {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .footer-bw {
+      color: var(--bw-gold);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="bw-logo">
+      <div class="bw-badge">
+        BEST<span>WESTERN</span>
+      </div>
+      <div class="hotel-name">Fort Wayne, Indiana</div>
+    </div>
+    <div class="wifi-indicator">
+      <div class="wifi-dot"></div>
+      Guest WiFi
+    </div>
+  </header>
+
+  <!-- HERO WELCOME -->
+  <div class="hero">
+    <h1 class="welcome-line">Welcome to Best Western</h1>
+    <p class="welcome-sub">Fort Wayne, Indiana &mdash; We're glad you're here</p>
+  </div>
+
+  <div class="divider">
+    <span class="divider-text">While you're here</span>
+  </div>
+
+  <!-- SUNDRY SHOP BANNER -->
+  <div style="padding: 0 20px; max-width: 740px; margin: 28px auto 0;">
+    <div class="shop-banner">
+      <div class="shop-eyebrow">On-Site &bull; Open Daily</div>
+      <h2 class="shop-headline">Visit Our Sundry Shop</h2>
+      <p class="shop-desc">
+        Skip the drive — everything you need is steps away. Our Sundry Shop is stocked with snacks, drinks, and everyday essentials to make your stay more comfortable.
+      </p>
+      <div class="shop-tags">
+        <span class="tag">🍿 Snacks</span>
+        <span class="tag">☕ Hot Drinks</span>
+        <span class="tag">🥤 Cold Beverages</span>
+        <span class="tag">🧴 Toiletries</span>
+        <span class="tag">🍫 Candy &amp; Sweets</span>
+        <span class="tag">💊 Over-the-Counter</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRINKS SECTION -->
+  <div class="section">
+    <h2 class="section-title">Raise a Glass</h2>
+    <p class="section-sub">Our expanded drinks selection has something for every taste</p>
+
+    <div class="drinks-grid">
+      <div class="drink-card">
+        <span class="drink-icon">🍺</span>
+        <div class="drink-name">Beer</div>
+        <div class="drink-desc">Domestic favorites, craft selections &amp; imported brews</div>
+      </div>
+      <div class="drink-card">
+        <span class="drink-icon">🍷</span>
+        <div class="drink-name">Wine</div>
+        <div class="drink-desc">Reds, whites &amp; rosés — the perfect pour for any evening</div>
+      </div>
+      <div class="drink-card">
+        <span class="drink-icon">🍹</span>
+        <div class="drink-name">Cocktails</div>
+        <div class="drink-desc">Ready-to-drink cocktails &amp; spirits to mix your own</div>
+      </div>
+      <div class="drink-card">
+        <span class="drink-icon">🥤</span>
+        <div class="drink-name">Seltzers</div>
+        <div class="drink-desc">Hard seltzers &amp; sparkling options — light &amp; refreshing</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONNECT TO WIFI -->
+  <div class="hero" style="padding-top: 28px;">
+    <div class="connect-card">
+      <div class="network-name">Connect to</div>
+      <div class="ssid">BW-GuestWiFi</div>
+      <p class="tos">By connecting, you agree to our acceptable use policy. This network is provided for guests of Best Western Fort Wayne.</p>
+      <button class="btn-connect" id="connect-btn">Connect to Free WiFi &rarr;</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bw">BEST WESTERN &mdash; Fort Wayne, Indiana</div>
+    <div>Thank you for choosing Best Western. Enjoy your stay!</div>
+    <div style="margin-top: 8px; font-size: 11px;">
+      Must be 21+ to purchase alcohol &bull; Please drink responsibly
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('connect-btn').addEventListener('click', function () {
+      this.textContent = 'Connecting…';
+      this.disabled = true;
+      setTimeout(function () {
+        window.location.href = 'https://www.google.com';
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>
