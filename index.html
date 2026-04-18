@@ -448,9 +448,7 @@
       <div class="network-name">Connect to</div>
       <div class="ssid">BW-GuestWiFi</div>
       <p class="tos">By connecting, you agree to our acceptable use policy. This network is provided for guests of Best Western Fort Wayne.</p>
-      <form id="meraki-form" method="POST">
-        <button class="btn-connect" type="submit">Connect to Free WiFi &rarr;</button>
-      </form>
+      <button class="btn-connect" id="connect-btn">Connect to Free WiFi &rarr;</button>
     </div>
   </div>
 
@@ -466,22 +464,25 @@
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
-      var loginUrl = params.get('login_url');
-      var form = document.getElementById('meraki-form');
+      var baseGrantUrl = params.get('base_grant_url');
+      var userContinueUrl = params.get('user_continue_url') || 'https://www.google.com';
+      var btn = document.getElementById('connect-btn');
 
-      if (loginUrl) {
-        form.action = loginUrl;
-      } else {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          window.location.href = 'https://www.google.com';
-        });
-      }
-
-      form.addEventListener('submit', function () {
-        var btn = form.querySelector('button');
+      btn.addEventListener('click', function () {
         btn.textContent = 'Connecting…';
         btn.disabled = true;
+
+        var target;
+        if (baseGrantUrl) {
+          var sep = baseGrantUrl.indexOf('?') === -1 ? '?' : '&';
+          target = baseGrantUrl + sep + 'continue_url=' + encodeURIComponent(userContinueUrl);
+        } else {
+          target = userContinueUrl;
+        }
+
+        setTimeout(function () {
+          window.location.href = target;
+        }, 400);
       });
     })();
   </script>
