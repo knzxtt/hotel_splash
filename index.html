@@ -463,7 +463,8 @@
 
   <script>
     (function () {
-      var continueUrl = 'https://www.google.com';
+      var params = new URLSearchParams(window.location.search);
+      var continueUrl = params.get('login_url') || params.get('continue_url') || 'https://www.google.com';
 
       document.getElementById('connect-btn').addEventListener('click', function () {
         this.textContent = 'Connecting…';
