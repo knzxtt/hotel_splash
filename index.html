@@ -462,13 +462,18 @@
   </footer>
 
   <script>
-    document.getElementById('connect-btn').addEventListener('click', function () {
-      this.textContent = 'Connecting…';
-      this.disabled = true;
-      setTimeout(function () {
-        window.location.href = 'https://www.google.com';
-      }, 800);
-    });
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var continueUrl = params.get('continue_url') || 'https://www.google.com';
+
+      document.getElementById('connect-btn').addEventListener('click', function () {
+        this.textContent = 'Connecting…';
+        this.disabled = true;
+        setTimeout(function () {
+          window.location.href = continueUrl;
+        }, 800);
+      });
+    })();
   </script>
 
 </body>
